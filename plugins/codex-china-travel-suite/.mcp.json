@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "amap": {
+      "command": "node",
+      "args": ["./servers/amap-remote.mjs"],
+      "cwd": ".",
+      "env_vars": ["PATH", "HOME", "USER", "AMAP_MCP_KEY", "AMAP_WEBSERVICE_KEY"],
+      "startup_timeout_sec": 20,
+      "tool_timeout_sec": 180
+    },
+    "didi": {
+      "command": "node",
+      "args": ["./servers/didi-remote.mjs"],
+      "cwd": ".",
+      "env_vars": ["PATH", "HOME", "USER", "DIDI_MCP_KEY"],
+      "startup_timeout_sec": 20,
+      "tool_timeout_sec": 180
+    },
+    "meituan-fliggy": {
+      "command": "node",
+      "args": ["./servers/travel-services.mjs"],
+      "cwd": ".",
+      "env_vars": ["PATH", "HOME", "MEITUAN_HT_TOKEN", "FLYAI_API_KEY"],
+      "startup_timeout_sec": 20,
+      "tool_timeout_sec": 240
+    }
+  }
+}

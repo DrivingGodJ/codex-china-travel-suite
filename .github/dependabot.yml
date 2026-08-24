@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /plugins/codex-china-travel-suite
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

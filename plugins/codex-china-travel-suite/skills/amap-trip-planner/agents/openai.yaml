@@ -1,0 +1,13 @@
+interface:
+  display_name: "AMap Trip Planner"
+  short_description: "Verify China POIs and routes, then build a practical itinerary"
+  default_prompt: "Use $amap-trip-planner to plan a relaxed mainland-China trip with live POI and route verification."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "amap"
+      description: "AMap MCP server for live POI, route, weather, and navigation data"
+
+policy:
+  allow_implicit_invocation: true

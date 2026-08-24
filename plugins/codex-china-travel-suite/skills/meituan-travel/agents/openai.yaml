@@ -1,0 +1,13 @@
+interface:
+  display_name: "Meituan Travel"
+  short_description: "Search Meituan hotels, flights, tickets, and holiday products"
+  default_prompt: "Use $meituan-travel to search Meituan Travel and preserve all returned conditions exactly."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "meituan-fliggy"
+      description: "Bundled Fliggy and Meituan Travel MCP server"
+
+policy:
+  allow_implicit_invocation: true

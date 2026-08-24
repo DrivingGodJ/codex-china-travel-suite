@@ -1,0 +1,24 @@
+{
+  "name": "codex-china-travel-suite",
+  "version": "0.1.0",
+  "description": "Mainland-China trip planning with AMap, DiDi, Fliggy, and Meituan Travel integrations.",
+  "author": {
+    "name": "DrivingGodJ"
+  },
+  "keywords": ["amap", "didi", "fliggy", "meituan", "travel", "china"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "China Travel Suite",
+    "shortDescription": "Plan routes and compare live China travel inventory.",
+    "longDescription": "Combines AMap geographic checks, DiDi ride tools, and Fliggy and Meituan travel-product discovery in one Codex plugin.",
+    "developerName": "DrivingGodJ",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Plan a relaxed mainland-China trip and verify every important POI and route with AMap.",
+      "Compare relevant Fliggy and Meituan travel products without booking them.",
+      "Estimate a DiDi ride, but ask for confirmation before placing or cancelling an order."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

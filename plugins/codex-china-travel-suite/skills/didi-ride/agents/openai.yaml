@@ -1,0 +1,13 @@
+interface:
+  display_name: "DiDi Ride"
+  short_description: "Search, estimate, and safely manage DiDi rides"
+  default_prompt: "Use $didi-ride to estimate this trip and ask before any order or cancellation."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "didi"
+      description: "DiDi MCP server"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,13 @@
+interface:
+  display_name: "Fliggy FlyAI"
+  short_description: "Search Fliggy flights, hotels, attractions, and products"
+  default_prompt: "Use $fliggy-flyai to compare relevant Fliggy travel inventory."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "meituan-fliggy"
+      description: "Bundled Fliggy and Meituan Travel MCP server"
+
+policy:
+  allow_implicit_invocation: true
