@@ -13,7 +13,7 @@
     "@fly-ai/flyai-cli": "1.0.16",
     "@meituan-travel/ht-ai": "0.0.6",
     "@modelcontextprotocol/sdk": "1.30.0",
-    "mcp-remote": "0.1.49",
+    "mcp-remote": "0.14.3",
     "zod": "4.4.3"
   }
 }
