@@ -1,0 +1,4 @@
+interface:
+  display_name: "China Rail Trip Planner"
+  short_description: "Check exact rail stations, connections, and booking status"
+  default_prompt: "Use $rail-trip-planner to find a train after my appointment, verify the station transfers, and help book within my approved budget."

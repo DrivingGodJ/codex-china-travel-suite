@@ -1,0 +1,13 @@
+interface:
+  display_name: "iCloud Calendar"
+  short_description: "Organize iCloud events without duplicates, by calendar category"
+  default_prompt: "Use $icloud-calendar to update my itinerary without duplicates and place events in the appropriate existing calendars."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "icloud-calendar"
+      description: "Independently configured iCloud CalDAV server for reading and editing events"
+
+policy:
+  allow_implicit_invocation: true

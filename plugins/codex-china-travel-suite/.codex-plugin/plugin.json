@@ -1,23 +1,25 @@
 {
   "name": "codex-china-travel-suite",
-  "version": "0.1.0",
-  "description": "Mainland-China trip planning with AMap, DiDi, Fliggy, and Meituan Travel integrations.",
+  "version": "0.2.0",
+  "description": "China trip planning with AMap, DiDi, Fliggy, Meituan, rail workflows, and iCloud Calendar organization.",
   "author": {
     "name": "DrivingGodJ"
   },
-  "keywords": ["amap", "didi", "fliggy", "meituan", "travel", "china"],
+  "keywords": ["amap", "didi", "fliggy", "meituan", "travel", "china", "12306", "icloud", "calendar"],
   "skills": "./skills/",
   "interface": {
     "displayName": "China Travel Suite",
-    "shortDescription": "Plan routes and compare live China travel inventory.",
-    "longDescription": "Combines AMap geographic checks, DiDi ride tools, and Fliggy and Meituan travel-product discovery in one Codex plugin.",
+    "shortDescription": "Plan China trips, rail connections, and categorized calendars.",
+    "longDescription": "Combines AMap, DiDi, Fliggy, and Meituan integrations with rail-trip workflows and duplicate-aware iCloud Calendar organization through separately configured official rail and CalDAV connections.",
     "developerName": "DrivingGodJ",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
       "Plan a relaxed mainland-China trip and verify every important POI and route with AMap.",
       "Compare relevant Fliggy and Meituan travel products without booking them.",
-      "Estimate a DiDi ride, but ask for confirmation before placing or cancelling an order."
+      "Estimate a DiDi ride, but ask for confirmation before placing or cancelling an order.",
+      "Find a feasible train after my appointment and keep pending payment distinct from a paid ticket.",
+      "Update my iCloud itinerary, check duplicates, and classify events in my existing calendars."
     ]
   },
   "mcpServers": "./.mcp.json"

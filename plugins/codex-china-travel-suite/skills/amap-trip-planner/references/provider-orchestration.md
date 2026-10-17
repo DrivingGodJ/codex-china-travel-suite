@@ -20,3 +20,9 @@ Use AMap or DiDi place search to resolve both endpoints. Fare estimates are temp
 ## Failure handling
 
 If one provider is unavailable, continue with the other relevant source and state which cross-check is missing. Do not repeatedly retry the same failing provider.
+
+## Rail and calendar coordination
+
+Use the bundled `rail-trip-planner` skill to verify exact rail stations, appointment-to-station buffers, the last onward train, and official booking/payment status. Rail inventory comes from 12306, not a map estimate or an OTA search heading.
+
+Use the bundled `icloud-calendar` skill for authorized itinerary writes. Check duplicates across relevant calendars before and after changes, classify events by purpose, and preserve existing fields when editing or moving. A planned train, pending-payment order, paid ticket, and unbooked ground transfer must remain distinguishable.

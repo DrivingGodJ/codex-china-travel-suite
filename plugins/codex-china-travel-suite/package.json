@@ -1,6 +1,6 @@
 {
   "name": "codex-china-travel-suite",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "MCP bridges and Codex skills for mainland-China travel planning.",

@@ -5,7 +5,7 @@ description: Plan mainland-China trips with live AMap POI, route, weather, and n
 
 # AMap trip planning
 
-Use the bundled `amap` MCP server as the geographic and routing authority. Read `references/provider-orchestration.md` when hotels, flights, tickets, rides, or cross-provider comparison are involved.
+Use the bundled `amap` MCP server as the geographic and routing authority. Read `references/provider-orchestration.md` when hotels, flights, tickets, rides, or cross-provider comparison are involved. Use the bundled `rail-trip-planner` skill for trains around an appointment and `icloud-calendar` when the user authorizes saving or editing the itinerary.
 
 ## Workflow
 
@@ -15,6 +15,7 @@ Use the bundled `amap` MCP server as the geographic and routing authority. Read 
 4. Verify opening hours, reservation rules, temporary closures, and ticket eligibility from current official sources. Treat map metadata as location data, not final admission policy.
 5. Use Fliggy or Meituan only after the geographic shortlist is sensible. Re-run affected routes after the user chooses a different hotel, entrance, station, or attraction.
 6. Return a relaxed itinerary with transit buffers, exact place names, route durations, and one-tap AMap navigation links when the tool provides them.
+7. Before an authorized calendar write, check existing events across the relevant lists and dates, reuse matching entries, and classify each activity or transport leg in the appropriate existing calendar. Read back the result and check for duplicates afterward.
 
 ## Reliability boundaries
 
