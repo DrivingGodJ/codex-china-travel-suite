@@ -32,6 +32,7 @@ Do not default every itinerary item to one calendar, create new categories witho
 
 - Prefer `get_event` with the returned `resource_id` for one known event. Read current details and use `expected_etag` when available.
 - Patch only requested fields. Preserve the time, timezone, location, notes, recurrence, and reminder set when they are outside the requested change. A null field clears it; an empty alarm array removes reminders.
+- For itinerary timing, follow [stop times and travel gaps](../amap-trip-planner/SKILL.md#stop-times-and-travel-gaps): record actual meal and visit durations, leave short transfers as empty gaps with route estimates in adjacent notes, and retain substantial transport blocks. An empty gap must still fit the verified journey and necessary buffer.
 - Record transport truthfully: suggested, ordered/pending payment, and paid/issued are different states. Do not turn a planned connection, taxi estimate, or registration screenshot into a new paid reservation.
 - Read back the stored event, then check the affected dates and lists for duplicate copies. Confirm the actual calendar, time, and preserved reminders, not just that a tool was called.
 

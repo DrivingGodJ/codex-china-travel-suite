@@ -17,6 +17,13 @@ Use the bundled `amap` MCP server as the geographic and routing authority. Read 
 6. Return a relaxed itinerary with transit buffers, exact place names, route durations, and one-tap AMap navigation links when the tool provides them.
 7. Before an authorized calendar write, check existing events across the relevant lists and dates, reuse matching entries, and classify each activity or transport leg in the appropriate existing calendar. Read back the result and check for duplicates afterward.
 
+## Stop times and travel gaps
+
+- Calendar meal and visit times cover the actual stay at that place. For short local walks or transfers, typically around 15–20 minutes, leave the calendar gap empty instead of creating a transport event, zero-duration placeholder, or all-day item. Put the route and estimated duration in the adjacent stop's notes.
+- Empty calendar space still needs enough travel time: verify each gap against the routed duration plus an appropriate access, waiting, or crossing buffer. Shorten or move flexible stops when necessary; preserve confirmed admission windows and train times.
+- Keep a separate transport event for a substantial journey or a connection that controls arrival. Distinguish the map estimate from time for walking to the station, transfers, car pickup, traffic, and venue entry. Do not label a large unused interval as travel time merely to fill the calendar.
+- When recalibrating an itinerary, recheck the affected routes with the intended mode and exact entrances. Read back stop times, meaningful transport blocks, empty short-transfer gaps, and hard arrival deadlines; confirm that the gaps are feasible and obsolete transport events are gone.
+
 ## Reliability boundaries
 
 - Weather, traffic, opening rules, inventory, and prices are time-sensitive; state the query time and recheck before execution.
