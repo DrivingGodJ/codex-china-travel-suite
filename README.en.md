@@ -2,67 +2,43 @@
 
 # Codex China Travel Suite
 
-A Codex plugin for mainland-China travel, combining place and route verification, travel-service queries, rail itinerary coordination and calendar organization.
+Turn a travel idea into a workable itinerary by checking places, connections, transport and calendar plans together.
 
-## Features
+## Make the itinerary work
 
-| Skill | Purpose |
+Similar place names, distant railway stations and events ending after the last train can all derail a plan. The suite uses AMap to verify places, routes and weather, then combines rail and travel queries to check how each leg connects.
+
+For example:
+
+> I'm attending an event in Nanjing on Saturday afternoon and need to return to Jiangyin afterward. Check the venue, station transfer time and feasible return options.
+
+## Gather the information you need
+
+| Task | Capability |
 | --- | --- |
-| `amap-trip-planner` | Verify AMap places, routes, weather and navigation links |
-| `didi-ride` | Search places, plan routes, estimate fares and perform explicitly confirmed ride actions |
-| `fliggy-flyai` | Query Fliggy flights, hotels, tickets and travel products |
-| `meituan-travel` | Query Meituan Travel accommodation, transport, tickets and holiday products |
-| `rail-trip-planner` | Check stations, transfers and last trains around appointments; assist with authorized booking |
-| `icloud-calendar` | Check duplicates, use existing calendars, organize events and reminders, and verify changes |
+| Find places, routes and weather | Live AMap verification and navigation links |
+| Compare a taxi transfer | DiDi routes and fare estimates |
+| Find hotels, flights and ticket candidates | Fliggy and Meituan Travel queries |
+| Plan trains and transfers | 12306 itinerary coordination and station/connection checks |
+| Add confirmed plans to a calendar | iCloud duplicate checks, classification and reminders |
 
-## Quick start
+## Move from options to confirmed plans
 
-Requires Node.js **20+** and a version of Codex with plugin support. Run:
+Queries help you compare choices first. Once you decide, explicitly request booking assistance, a ride or calendar updates. Unpaid orders, issued tickets and unbooked items remain distinct. Calendar work uses your existing categories, checks duplicates and verifies changes afterward.
 
-```bash
-git clone https://github.com/DrivingGodJ/codex-china-travel-suite.git
-cd codex-china-travel-suite
-npm ci --prefix plugins/codex-china-travel-suite
-codex plugin marketplace add .
-codex plugin add codex-china-travel-suite@drivinggodj-travel
-```
+## Get started
 
-Configure only the services you use. These Bash examples leave values empty; keep real credentials in your own environment:
+Install the suite in Codex with plugin support, configure the services you need and describe the trip in natural language.
 
-```bash
-export AMAP_MCP_KEY=""
-export DIDI_MCP_KEY=""
-export MEITUAN_HT_TOKEN=""
-export FLYAI_API_KEY=""
-```
+[Installation and service setup](docs/GUIDE.en.md)
 
-On Windows, set user environment variables and fully restart Codex. On macOS, AMap and DiDi credentials may also use the Keychain services `codex-china-travel-suite-amap-key` and `codex-china-travel-suite-didi-key`. Never put real credentials in conversations or the repository.
+## Explore further
 
-## Usage
+| Topic | Documentation |
+| --- | --- |
+| Installation, credentials, 12306 and calendar connections | [User guide](docs/GUIDE.en.md) |
+| Booking, orders and calendar authorization | [Usage details](docs/GUIDE.en.md#usage) |
+| Development and contributions | [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md) |
+| Security and feedback | [Security](SECURITY.md) · [Issues](https://github.com/DrivingGodJ/codex-china-travel-suite/issues) |
 
-For example, ask to check tomorrow's Nanjing itinerary and transfer times, then explicitly request any booking or calendar changes. AMap is the primary place and route reference. Recheck prices, inventory, schedules, opening hours and reservation rules before acting.
-
-Rail workflows require a separately configured 12306 integration or the official website/app; no 12306 client is bundled. An installed `12306-train-assistant` can be reused. iCloud Calendar also reuses an independent CalDAV MCP connection. A new connection can use `@lukegskw/caldav-mcp@0.1.9`, Node.js **22+**, `CALDAV_USERNAME` and an Apple app-specific password in `CALDAV_PASSWORD`; see [calendar setup (Chinese)](plugins/codex-china-travel-suite/skills/icloud-calendar/references/setup.md). Verify installation by listing calendars and reading events.
-
-- A query does not authorize orders, payment, cancellation or calendar writes. Show current details and obtain explicit confirmation for each DiDi order creation or cancellation.
-- A held seat or unpaid order is not a ticket. Mark travel as purchased only after official payment/ticket confirmation. If browser policy blocks payment, hand it to the user in the official app and then verify the order.
-- Check calendar duplicates first and classify against the user's existing lists. Preserve times, locations, notes and multiple reminders. For cross-calendar moves, verify the destination before removing the source, then check for duplicates again.
-
-## Development and checks
-
-```bash
-npm ci --prefix plugins/codex-china-travel-suite
-npm run check --prefix plugins/codex-china-travel-suite
-npm test --prefix plugins/codex-china-travel-suite
-```
-
-Before release, also validate the plugin manifest and each skill with Codex's validators. Service authentication and real order status require separate checks in your environment.
-
-## Documentation and support
-
-- [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
-- [Report an issue](https://github.com/DrivingGodJ/codex-china-travel-suite/issues)
-
-## License and credits
-
-[MIT License](LICENSE). The AMap skill builds on an MIT-licensed AMap Open Platform project and preserves upstream copyrights; see [third-party notices](THIRD_PARTY_NOTICES.md). No private accounts are bundled.
+[MIT License](LICENSE) · [Origins and third-party notices](THIRD_PARTY_NOTICES.md)

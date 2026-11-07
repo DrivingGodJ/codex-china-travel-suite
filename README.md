@@ -2,67 +2,43 @@
 
 # Codex 中国旅行套件
 
-面向中国大陆出行的 Codex 插件，将地点与路线核验、出行服务查询、铁路行程协调和日历整理放进同一套工作流。
+从“想去哪里”到一份能执行的行程，把地点、接驳、交通和日历安排放在一起核对。
 
-## 功能特性
+## 先把行程走通
 
-| 技能 | 用途 |
+景点名称相似、车站距离市区很远、活动结束后赶不上末班车——这些细节都需要在出发前确认。套件用高德核验地点、路线和天气，再结合铁路与出行查询，检查各段安排能否衔接。
+
+你可以这样提出需求：
+
+> 周六下午在南京参加活动，结束后要回江阴。帮我核对场馆、到车站的接驳时间，以及可行的返程方案。
+
+## 把需要的信息一起找齐
+
+| 要做的事 | 对应能力 |
 | --- | --- |
-| `amap-trip-planner` | 高德地点、路线、天气和导航链接核验 |
-| `didi-ride` | 地点搜索、路线、车费估算和按明确确认执行的叫车操作 |
-| `fliggy-flyai` | 飞猪机票、酒店、门票和旅行产品查询 |
-| `meituan-travel` | 美团旅行酒店、交通、门票和度假产品查询 |
-| `rail-trip-planner` | 围绕活动时间核对车站、中转与末班车，按授权辅助订票 |
-| `icloud-calendar` | 查重、按现有日历分类、整理日程与提醒，并回读验证 |
+| 找地点、算路程、看天气 | 高德地图实时核验与导航链接 |
+| 比较打车接驳 | 滴滴路线与车费估算 |
+| 查看酒店、机票和门票候选 | 飞猪、美团旅行产品查询 |
+| 安排火车与中转 | 12306 行程协调、车站与换乘检查 |
+| 把确定的安排放入日历 | iCloud 日历查重、分类与提醒整理 |
 
-## 快速开始
+## 从方案到确定的安排
 
-需要 Node.js **20+** 和支持插件的 Codex。在终端执行：
+查询结果先帮助你比较选择。确定后，可以明确要求辅助订票、叫车或整理日历；待支付、已出票和未预订的部分会分别说明。日历沿用你已有的分类，先查重，再检查写入结果。
 
-```bash
-git clone https://github.com/DrivingGodJ/codex-china-travel-suite.git
-cd codex-china-travel-suite
-npm ci --prefix plugins/codex-china-travel-suite
-codex plugin marketplace add .
-codex plugin add codex-china-travel-suite@drivinggodj-travel
-```
+## 开始使用
 
-只配置实际需要的服务。以下为 Bash 环境变量示例；填入的真实值仅保存在自己的环境中：
+将套件安装到支持插件的 Codex，配置需要的服务后，直接用自然语言描述出行需求。
 
-```bash
-export AMAP_MCP_KEY=""
-export DIDI_MCP_KEY=""
-export MEITUAN_HT_TOKEN=""
-export FLYAI_API_KEY=""
-```
+[查看安装与服务配置](docs/GUIDE.zh-CN.md)
 
-Windows 可在用户环境变量中填写，随后完全退出并重开 Codex。macOS 还可将高德和滴滴凭据保存到钥匙串服务 `codex-china-travel-suite-amap-key`、`codex-china-travel-suite-didi-key`。不要向对话或仓库提交真实凭据。
+## 进一步了解
 
-## 使用说明
+| 想了解什么 | 去哪里看 |
+| --- | --- |
+| 安装、凭据、12306 与日历连接 | [使用指南](docs/GUIDE.zh-CN.md) |
+| 订票、订单和日历的操作边界 | [使用说明](docs/GUIDE.zh-CN.md#使用说明) |
+| 开发与贡献 | [贡献指南](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) |
+| 安全与问题反馈 | [安全说明](SECURITY.md) · [Issues](https://github.com/DrivingGodJ/codex-china-travel-suite/issues) |
 
-例如请求“检查明天的南京行程和接驳时间”，再按需要明确要求订票或写入日历。地点与路线以高德核验为主；价格、库存、班次、营业时间和预约规则须在实际执行前重新确认。
-
-铁路依赖另外配置的 12306 集成或官方网页/App，不随本仓库分发客户端代码；已安装 `12306-train-assistant` 时可复用。iCloud 日历同样复用独立的 CalDAV MCP。新连接可使用 `@lukegskw/caldav-mcp@0.1.9`，需 Node.js **22+**、`CALDAV_USERNAME` 和 Apple App 专用密码 `CALDAV_PASSWORD`，详见[日历连接说明](plugins/codex-china-travel-suite/skills/icloud-calendar/references/setup.md)。安装成功后须实际列出并读取日历，才算连接可用。
-
-- 查询不授权下单、支付、取消订单或写日历。创建或取消滴滴订单前，展示最新信息并取得当次明确确认。
-- 锁座或待支付不等于已出票；官方确认付款/出票后才标为已购票。支付页被浏览器策略拦截时转交用户在官方 App 完成，再核对订单。
-- 日历先查重，再按用户现有列表分类；保留时间、地点、备注和多条提醒。跨列表移动先验证目标再移除来源，最后复查无重复。
-
-## 开发与验证
-
-```bash
-npm ci --prefix plugins/codex-china-travel-suite
-npm run check --prefix plugins/codex-china-travel-suite
-npm test --prefix plugins/codex-china-travel-suite
-```
-
-发布前还需使用 Codex 的插件与技能校验器检查清单和各技能。服务登录与真实订单状态需在自己的环境单独核验。
-
-## 文档与支持
-
-- [更新记录](CHANGELOG.md) · [参与贡献](CONTRIBUTING.md) · [安全说明](SECURITY.md)
-- [问题反馈](https://github.com/DrivingGodJ/codex-china-travel-suite/issues)
-
-## 许可与致谢
-
-[MIT License](LICENSE)。高德旅行规划技能基于高德地图开放平台发布的 MIT 项目改进，保留上游版权声明，见[第三方声明](THIRD_PARTY_NOTICES.md)。本仓库不附带私人账号。
+[MIT License](LICENSE) · [来源与第三方声明](THIRD_PARTY_NOTICES.md)
